@@ -1,0 +1,99 @@
+<h1>Sample#index</h1>
+
+<style type="text/css">
+    #accountForm {
+        margin-top: 15px;
+    }
+</style>
+
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#list-tab" data-toggle="tab">List <i class="fa"></i></a>
+  </li>
+  <li>
+    <a href="#create-tab" data-toggle="tab">Create <i class="fa"></i></a>
+  </li>
+  <li>
+    <a href="#read-tab" data-toggle="tab">Read <i class="fa"></i></a>
+  </li>
+  <li>
+    <a href="#update-tab" data-toggle="tab">Update <i class="fa"></i></a>
+  </li>
+  <li>
+    <a href="#delete-tab" data-toggle="tab">Delete <i class="fa"></i></a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="list-tab">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>名前</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>John</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+      </tr>
+      <tr>
+        <td>July</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane" id="create-tab">
+    <form id="accountForm" method="post" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">名前</label>
+        <div class="col-xs-5">
+          <input type="text" class="form-control" name="fullName" />
+        </div>
+        <div class="col-xs-5 col-xs-offset-3">
+          <button type="submit" class="btn btn-default">登録</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="tab-pane" id="read-tab">
+    <div class="form-group">
+      <label class="col-xs-3 control-label">名前</label>
+      <div class="col-xs-5">
+        <input type="text" class="form-control" name="fullName" />
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="update-tab">
+    <form id="accountForm" method="post" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">名前</label>
+        <div class="col-xs-5">
+          <input type="text" class="form-control" name="fullName" />
+        </div>
+        <div class="col-xs-5 col-xs-offset-3">
+          <button type="submit" class="btn btn-default">更新</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="tab-pane" id="delete-tab">
+    <form id="accountForm" method="post" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-3 control-label">名前</label>
+        <div class="col-xs-5">
+          <input type="text" class="form-control" name="fullName" />
+        </div>
+        <div class="col-xs-5 col-xs-offset-3">
+          <button type="submit" class="btn btn-default">削除</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
