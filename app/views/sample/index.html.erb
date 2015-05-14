@@ -33,15 +33,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-      </tr>
-      <tr>
-        <td>July</td>
-      </tr>
+      <% @samples.each do |sample| %>
+          <tr>
+            <td>sample.name</td>
+            <td><%= link_to 'Show', sample %></td>
+            <td><%= link_to 'Edit', sample %></td>
+            <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
       </tbody>
     </table>
   </div>
