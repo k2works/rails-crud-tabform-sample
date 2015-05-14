@@ -35,7 +35,7 @@
       <tbody>
       <% @samples.each do |sample| %>
           <tr>
-            <td>sample.name</td>
+            <td><%= sample.name %></td>
             <td><%= link_to 'Show', sample %></td>
             <td><%= link_to 'Edit', sample %></td>
             <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -46,17 +46,17 @@
   </div>
 
   <div class="tab-pane" id="create-tab">
-    <form id="accountForm" method="post" class="form-horizontal">
+      <%= form_for(:sample, html:{class:'form-horizontal'}) do |f| %>
       <div class="form-group">
-        <label class="col-xs-3 control-label">名前</label>
+        <%= f.label '名前', class:'col-xs-3 control-label' %>
         <div class="col-xs-5">
-          <input type="text" class="form-control" name="fullName" />
+          <%= f.text_field :name, class:'form-control' %>
         </div>
         <div class="col-xs-5 col-xs-offset-3">
-          <button type="submit" class="btn btn-default">登録</button>
+          <%= f.submit '登録', class:'btn btn-default' %>
         </div>
       </div>
-    </form>
+      <% end %>
   </div>
 
   <div class="tab-pane" id="read-tab">
