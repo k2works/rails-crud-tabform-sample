@@ -5,7 +5,7 @@ class SampleController < ApplicationController
   end
 
   def show
-    redirect_to sample_index_path
+    render html: @sample.name
   end
 
   def new 
