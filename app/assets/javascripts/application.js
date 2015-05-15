@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(function() {
+  $(".show-sample").on("ajax:complete", function(event,xhr) {
+    $("#show-fullname").val(xhr.responseText);
+    $("#read-tab-link").click();
+  });
+});
