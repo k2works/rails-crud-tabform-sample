@@ -17,8 +17,18 @@
 //= require bootstrap-sprockets
 
 $(function() {
-  $(".show-sample").on("ajax:complete", function(event,xhr) {
-    $("#show-fullname").val(xhr.responseText);
-    $("#read-tab-link").click();
-  });
+    $(".show-sample").on("ajax:complete", function(event,xhr) {
+        $("#show-fullname").val(xhr.responseText);
+        $("#read-tab-link").click();
+    });
+
+    $(".update-sample").on("ajax:complete", function(event,xhr) {
+        $("#update-fullname").val(xhr.responseText);
+        $("#update-tab-link").click();
+    });
+
+    $(".delete-sample").on("ajax:complete", function(event,xhr) {
+        $("#delete-fullname").val(xhr.responseText);
+        $("#delete-tab-link").click();
+    });
 });

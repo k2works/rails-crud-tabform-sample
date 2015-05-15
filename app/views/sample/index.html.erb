@@ -17,10 +17,10 @@
     <a href="#read-tab" id="read-tab-link" data-toggle="tab">Read <i class="fa"></i></a>
   </li>
   <li>
-    <a href="#update-tab" data-toggle="tab">Update <i class="fa"></i></a>
+    <a href="#update-tab" id="update-tab-link" data-toggle="tab">Update <i class="fa"></i></a>
   </li>
   <li>
-    <a href="#delete-tab" data-toggle="tab">Delete <i class="fa"></i></a>
+    <a href="#delete-tab"  id="delete-tab-link" data-toggle="tab">Delete <i class="fa"></i></a>
   </li>
 </ul>
 
@@ -37,8 +37,8 @@
           <tr>
             <td><%= sample.name %></td>
             <td><%= link_to 'Show', sample, remote: true , class: 'show-sample' %></td>
-            <td><%= link_to 'Edit', sample %></td>
-            <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', sample, remote: true , class: 'update-sample' %></td>
+            <td><%= link_to 'Destroy', sample, remote: true , class: 'delete-sample' %></td>
           </tr>
       <% end %>
       </tbody>
@@ -73,7 +73,7 @@
       <div class="form-group">
         <label class="col-xs-3 control-label">名前</label>
         <div class="col-xs-5">
-          <input type="text" class="form-control" name="fullName" />
+          <input id="update-fullname" type="text" class="form-control" name="fullName" />
         </div>
         <div class="col-xs-5 col-xs-offset-3">
           <button type="submit" class="btn btn-default">更新</button>
@@ -87,7 +87,7 @@
       <div class="form-group">
         <label class="col-xs-3 control-label">名前</label>
         <div class="col-xs-5">
-          <input type="text" class="form-control" name="fullName" />
+          <input id="delete-fullname" type="text" class="form-control" name="fullName" />
         </div>
         <div class="col-xs-5 col-xs-offset-3">
           <button type="submit" class="btn btn-default">削除</button>
