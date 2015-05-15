@@ -34,6 +34,6 @@ class SampleController < ApplicationController
   end
 
   def sample_params
-    params.require(:sample).permit(:name)
+    params.require(:sample).permit(:name,:phone_number)
   end
 end

@@ -22,71 +22,109 @@
   </li>
 </ul>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="list-tab">
-    <table class="table">
-      <thead>
-      <tr>
-        <th>名前</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @samples.each do |sample| %>
+<%= form_for(:sample, html:{class:'form-horizontal'}) do |f| %>
+    <div class="tab-content">
+      <div class="tab-pane active" id="list-tab">
+        <table class="table">
+          <thead>
           <tr>
-            <td><%= sample.name %></td>
-            <td><%= link_to '詳細表示', sample, remote: true , class: 'show-sample btn btn-primary' %></td>
-            <td><%= link_to '更新', sample, remote: true , class: 'update-sample btn btn-primary' %></td>
-            <td><%= link_to '削除', sample, remote: true , class: 'delete-sample btn btn-danger' %></td>
+            <th>名前</th>
+            <th>電話番号</th>
           </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="tab-pane" id="create-tab">
-      <%= form_for(:sample, html:{class:'form-horizontal'}) do |f| %>
-      <div class="form-group">
-        <%= f.label '名前', class:'col-xs-3 control-label' %>
-        <div class="col-xs-5">
-          <%= f.text_field :name, class:'form-control' %>
+          </thead>
+          <tbody>
+          <% @samples.each do |sample| %>
+              <tr>
+                <td><%= sample.name %></td>
+                <td><%= sample.phone_number %></td>
+                <td><%= link_to '詳細表示', sample, remote: true , class: 'show-sample btn btn-primary' %></td>
+                <td><%= link_to '更新', sample, remote: true , class: 'update-sample btn btn-primary' %></td>
+                <td><%= link_to '削除', sample, remote: true , class: 'delete-sample btn btn-danger' %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="create-tab">
+        <div class="form-group">
+          <%= f.label '名前', class:'col-xs-3 control-label' %>
+          <div class="col-xs-5">
+            <%= f.text_field :name, class:'form-control' %>
+          </div>
         </div>
-        <div class="col-xs-5 col-xs-offset-3">
-          <%= f.submit '登録', class:'btn btn-default' %>
+
+        <div class="form-group">
+          <%= f.label '電話番号', class:'col-xs-3 control-label' %>
+          <div class="col-xs-5">
+            <%= f.text_field :phone_number, class:'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-5 col-xs-offset-3">
+            <%= f.submit '登録', class:'btn btn-default' %>
+          </div>
         </div>
       </div>
-      <% end %>
-  </div>
 
-  <div class="tab-pane" id="read-tab">
-    <div class="form-group">
-      <label class="col-xs-3 control-label">名前</label>
-      <div class="col-xs-5">
-        <input id="show-fullname" type="text" class="form-control" name="fullName" />
+      <div class="tab-pane" id="read-tab">
+        <div class="form-group">
+          <label class="col-xs-3 control-label">名前</label>
+          <div class="col-xs-5">
+            <input id="show-fullname" type="text" class="form-control" name="fullName" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-3 control-label">電話番号</label>
+          <div class="col-xs-5">
+            <input id="show-fullname" type="text" class="form-control" name="fullName" />
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="update-tab">
+        <div class="form-group">
+          <label class="col-xs-3 control-label">名前</label>
+          <div class="col-xs-5">
+            <input id="update-fullname" type="text" class="form-control" name="fullName" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-3 control-label">電話番号</label>
+          <div class="col-xs-5">
+            <input id="show-fullname" type="text" class="form-control" name="fullName" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-5 col-xs-offset-3">
+            <%= link_to '更新', sample_path(@samples[0]), method: :put, class:'btn btn-default' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="delete-tab">
+        <div class="form-group">
+          <label class="col-xs-3 control-label">名前</label>
+          <div class="col-xs-5">
+            <input id="delete-fullname" type="text" class="form-control" name="fullName" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-xs-3 control-label">電話番号</label>
+          <div class="col-xs-5">
+            <input id="show-fullname" type="text" class="form-control" name="fullName" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-5 col-xs-offset-3">
+            <%= link_to '削除', sample_path(@samples[0]), method: :put, class:'btn btn-default', data: {confirm: '削除します'} %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="tab-pane" id="update-tab">
-      <div class="form-group">
-        <label class="col-xs-3 control-label">名前</label>
-        <div class="col-xs-5">
-          <input id="update-fullname" type="text" class="form-control" name="fullName" />
-        </div>
-        <div class="col-xs-5 col-xs-offset-3">
-          <%= link_to '更新', sample_path(1), method: :put, class:'btn btn-default' %>
-        </div>
-      </div>
-  </div>
-
-  <div class="tab-pane" id="delete-tab">
-      <div class="form-group">
-        <label class="col-xs-3 control-label">名前</label>
-        <div class="col-xs-5">
-          <input id="delete-fullname" type="text" class="form-control" name="fullName" />
-        </div>
-        <div class="col-xs-5 col-xs-offset-3">
-          <%= link_to '削除', sample_path(1), method: :put, class:'btn btn-default', data: {confirm: '削除します'} %>
-        </div>
-      </div>
-  </div>
-</div>
+<% end %>
