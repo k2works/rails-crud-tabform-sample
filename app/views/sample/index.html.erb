@@ -36,9 +36,9 @@
       <% @samples.each do |sample| %>
           <tr>
             <td><%= sample.name %></td>
-            <td><%= link_to 'Show', sample, remote: true , class: 'show-sample' %></td>
-            <td><%= link_to 'Edit', sample, remote: true , class: 'update-sample' %></td>
-            <td><%= link_to 'Destroy', sample, remote: true , class: 'delete-sample' %></td>
+            <td><%= link_to '詳細表示', sample, remote: true , class: 'show-sample btn btn-primary' %></td>
+            <td><%= link_to '更新', sample, remote: true , class: 'update-sample btn btn-primary' %></td>
+            <td><%= link_to '削除', sample, remote: true , class: 'delete-sample btn btn-danger' %></td>
           </tr>
       <% end %>
       </tbody>
