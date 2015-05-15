@@ -1,5 +1,3 @@
-<h1>Sample#index</h1>
-
 <style type="text/css">
     #accountForm {
         margin-top: 15px;
@@ -69,30 +67,26 @@
   </div>
 
   <div class="tab-pane" id="update-tab">
-    <form id="accountForm" method="post" class="form-horizontal">
       <div class="form-group">
         <label class="col-xs-3 control-label">名前</label>
         <div class="col-xs-5">
           <input id="update-fullname" type="text" class="form-control" name="fullName" />
         </div>
         <div class="col-xs-5 col-xs-offset-3">
-          <button type="submit" class="btn btn-default">更新</button>
+          <%= link_to '更新', sample_path(1), method: :put, class:'btn btn-default' %>
         </div>
       </div>
-    </form>
   </div>
 
   <div class="tab-pane" id="delete-tab">
-    <form id="accountForm" method="post" class="form-horizontal">
       <div class="form-group">
         <label class="col-xs-3 control-label">名前</label>
         <div class="col-xs-5">
           <input id="delete-fullname" type="text" class="form-control" name="fullName" />
         </div>
         <div class="col-xs-5 col-xs-offset-3">
-          <button type="submit" class="btn btn-default">削除</button>
+          <%= link_to '削除', sample_path(1), method: :put, class:'btn btn-default', data: {confirm: '削除します'} %>
         </div>
       </div>
-    </form>
   </div>
 </div>

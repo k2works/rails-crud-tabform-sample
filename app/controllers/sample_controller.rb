@@ -23,7 +23,11 @@ class SampleController < ApplicationController
       end
     end
   end
-  
+
+  def update
+
+  end
+
   private
   def set_sample
     @sample = Sample.find(params[:id])
