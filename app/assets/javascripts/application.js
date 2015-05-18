@@ -22,6 +22,11 @@ $(function() {
         $("#read-tab-link").click();
     });
 
+    $(".create-sample").on("ajax:complete", function(event,xhr) {
+        $("#list-tab").find("tbody").append(xhr.responseText);
+        $("#list-tab-link").click();
+    });
+
     $(".update-sample").on("ajax:complete", function(event,xhr) {
         $("#update-fullname").val(xhr.responseText);
         $("#update-tab-link").click();

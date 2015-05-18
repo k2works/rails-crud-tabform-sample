@@ -1,11 +1,17 @@
 class SampleController < ApplicationController
-  before_action :set_sample, only: [:show, :edit, :update, :destroy]
+  before_action :set_sample, only: [:show, :show_line, :edit, :update, :destroy]
   def index
     @samples = Sample.all
   end
 
   def show
     render html: @sample.name
+  end
+
+  def show_line
+    respond_to do |format|
+      format.js { render layout: nil}
+    end
   end
 
   def new 
@@ -17,7 +23,8 @@ class SampleController < ApplicationController
     
     respond_to do |format|
       if @sample.save
-        format.html { redirect_to @sample, notic: 'Sample was successfully created.'}
+        format.html { redirect_to(show_line_sample_path(@sample.id),
+            notice: 'Sample was successfully created.')}
       else
         format.html { render action: 'new'}
       end
