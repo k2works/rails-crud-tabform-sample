@@ -6,7 +6,7 @@
 
 <ul class="nav nav-tabs">
   <li class="active">
-    <a href="#list-tab" data-toggle="tab">List <i class="fa"></i></a>
+    <a href="#list-tab" id="list-tab-link" data-toggle="tab">List <i class="fa"></i></a>
   </li>
   <li>
     <a href="#create-tab" data-toggle="tab">Create <i class="fa"></i></a>
@@ -22,7 +22,7 @@
   </li>
 </ul>
 
-<%= form_for(:sample, html:{class:'form-horizontal'}) do |f| %>
+<%= form_for(:sample, remote: true, html: {class:['form-horizontal', 'create-sample'],}) do |f| %>
     <div class="tab-content">
       <div class="tab-pane active" id="list-tab">
         <table class="table">
@@ -33,15 +33,9 @@
           </tr>
           </thead>
           <tbody>
-          <% @samples.each do |sample| %>
-              <tr>
-                <td><%= sample.name %></td>
-                <td><%= sample.phone_number %></td>
-                <td><%= link_to '詳細表示', sample, remote: true , class: 'show-sample btn btn-primary' %></td>
-                <td><%= link_to '更新', sample, remote: true , class: 'update-sample btn btn-primary' %></td>
-                <td><%= link_to '削除', sample, remote: true , class: 'delete-sample btn btn-danger' %></td>
-              </tr>
-          <% end %>
+            <% @samples.each do |sample| %>
+              <%= render 'sample', sample: sample%>
+            <% end %>
           </tbody>
         </table>
       </div>
