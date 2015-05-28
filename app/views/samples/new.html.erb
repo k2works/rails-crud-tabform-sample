@@ -1,5 +1,28 @@
-<h1>New Sample</h1>
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to 'List', samples_path %><i class="fa"></i>
+  </li>
+  <li class="active">
+    <%= link_to 'Create', new_sample_path %><i class="fa"></i>
+  </li>
+  <li class="disabled">
+    <a href="#read-tab" id="read-tab-link">Read <i class="fa"></i></a>
+  </li>
+  <li class="disabled">
+    <a href="#update-tab" id="update-tab-link">Update <i class="fa"></i></a>
+  </li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane" id="list-tab">
+  </div>
 
-<%= render 'form' %>
+  <div class="tab-pane" id="create-tab">
+  </div>
 
-<%= link_to 'Back', samples_path %>
+  <div class="tab-pane active" id="read-tab">
+    <%= render 'form' %>
+  </div>
+
+  <div class="tab-pane" id="update-tab">
+  </div>
+</div>
