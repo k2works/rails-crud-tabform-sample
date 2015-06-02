@@ -12,7 +12,10 @@
     <a href="#update-tab" id="update-tab-link">Update <i class="fa"></i></a>
   </li>
   <li>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#mymodal">検索</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#mymodal">検索(manual)</button>
+  </li>
+  <li>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#mymodal-ransack">検索(ransack)</button>
   </li>
 </ul>
 
@@ -21,8 +24,8 @@
     <table class="table">
       <thead>
       <tr>
-        <th>名前</th>
-        <th>電話番号</th>
+        <th><%= sort_link(@q, :name, '名前') %></th>
+        <th><%= sort_link(@q, :phone_number, '電話番号') %></th>
       </tr>
       </thead>
       <tbody>
@@ -74,6 +77,40 @@
             </div>
 
             <%= submit_tag '検索', class: 'btn btn-default' %>
+        <% end %>
+      </div>
+      <!-- フッター -->
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" role="dialog" area-hidden="true" id="mymodal-ransack">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- ヘッダー -->
+      <div class="modal-header">
+        <!-- [x]ボタン -->
+        <button class="close" data-dismiss="modal" aria-hidden="true">
+          &times;</button>
+        <h4 class="modal-title">タイトル</h4>
+      </div>
+      <!-- 本文 -->
+      <div class="modal-body">
+        <%= search_form_for @q do |f| %>
+            <div class="form-group">
+              <%= f.label :name_cont, '名前', class: 'col-xs-3 control-label' %>
+              <%= f.search_field :name_cont, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :phone_number_cont, '電話番号', class: 'col-xs-3 control-label' %>
+              <%= f.search_field :phone_number_cont, class: 'form-control' %>
+            </div>
+
+            <%= f.submit '検索', class: 'btn btn-default' %>
         <% end %>
       </div>
       <!-- フッター -->

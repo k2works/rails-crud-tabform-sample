@@ -4,7 +4,8 @@ class SamplesController < ApplicationController
   # GET /samples
   # GET /samples.json
   def index
-    @samples = Sample.all
+    @q = Sample.ransack(params[:q])
+    @samples = @q.result(distinct: true)
   end
 
   # GET /samples/1
@@ -62,6 +63,7 @@ class SamplesController < ApplicationController
   end
 
   def search
+    @q = Sample.ransack(params[:q])
     @samples = Sample.where(name: params[:sample][:name],phone_number: params[:sample][:phone_number])
     render 'index'
   end

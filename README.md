@@ -115,3 +115,4 @@ http://コンテナのIPアドレス:3000/sample
 # 参照
 
 + [k2works / railscrudtabformsample_web](https://registry.hub.docker.com/u/k2works/railscrudtabformsample_web/)
++ [activerecord-hackery/ransack](https://github.com/activerecord-hackery/ransack)
