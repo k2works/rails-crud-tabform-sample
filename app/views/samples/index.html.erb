@@ -49,6 +49,7 @@
   </div>
 </div>
 
+
 <div class="modal" role="dialog" area-hidden="true" id="mymodal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -61,7 +62,19 @@
       </div>
       <!-- 本文 -->
       <div class="modal-body">
-        <p>本文本文。</p>
+        <%= form_tag({ controller: :samples, action: :index}, :method => :get, id: :fm, class: :search) do %>
+            <div class="form-group">
+              <%= label :name, :name, '名前', class: 'col-xs-3 control-label' %>
+              <%= text_field :sample, :name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= label :phone_number, :name, '電話番号', class: 'col-xs-3 control-label' %>
+              <%= text_field :sample, :phone_number, class: 'form-control' %>
+            </div>
+
+            <%= submit_tag '検索', class: 'btn btn-default' %>
+        <% end %>
       </div>
       <!-- フッター -->
       <div class="modal-footer">
