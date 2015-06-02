@@ -62,7 +62,7 @@
       </div>
       <!-- 本文 -->
       <div class="modal-body">
-        <%= form_tag({ controller: :samples, action: :index}, :method => :get, id: :fm, class: :search) do %>
+        <%= form_tag({ controller: :samples, action: :search}, id: :fm, class: :search) do %>
             <div class="form-group">
               <%= label :name, :name, '名前', class: 'col-xs-3 control-label' %>
               <%= text_field :sample, :name, class: 'form-control' %>

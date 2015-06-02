@@ -61,6 +61,11 @@ class SamplesController < ApplicationController
     end
   end
 
+  def search
+    @samples = Sample.where(name: params[:sample][:name],phone_number: params[:sample][:phone_number])
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sample
