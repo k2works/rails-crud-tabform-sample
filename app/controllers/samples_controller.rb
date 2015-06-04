@@ -6,6 +6,7 @@ class SamplesController < ApplicationController
   def index
     @q = Sample.ransack(params[:q])
     @samples = @q.result(distinct: true)
+    @q.conditions.clear
   end
 
   # GET /samples/1
